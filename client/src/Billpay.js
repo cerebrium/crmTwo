@@ -5,11 +5,18 @@ import { Link } from 'react-router-dom'
 const Billpay = (props) => {
 
     const [ driver, setDriver] = useState(null)
+    const [driverMiles, setDriverMiles] = useState(0)
+    const [driverPay, setDriverPay] = useState(0)
+    const [driverHours, setDriverHours] = useState(0)
 
-    var myId = props.location.pathname.replace(/\/billpay\//, '')
     useEffect(() => {
-        axios.get(`/billpay/initial/${myId}`).then(res => {
+        var myId = props.location.pathname.replace(/\/billpay\//, '')
+        axios.get(`/billpay/${myId}`).then(res => {
             setDriver(res.data)
+            console.log(res.data)
+            setDriverHours(res.data.hoursWorked)
+            setDriverPay(res.data.amountDue)
+            setDriverMiles(res.data.milesDriven)
         })
     }, [])
 
@@ -19,6 +26,9 @@ const Billpay = (props) => {
             <>
                 <h3>Name: {driver.name}</h3>
                 <h3>Email: {driver.email}</h3>
+                <h3>Current Miles: {driverMiles}</h3>
+                <h3>Current Hours: {driverHours}</h3>
+                <h3>Current Amount Due: {driverPay}</h3>
             </>
         )
     } else {
@@ -29,6 +39,9 @@ const Billpay = (props) => {
         ev.preventDefault()
         console.log(ev.target.milesDriven.value, ev.target.hoursWorked.value, ev.target.amountDue.value)
         var myIdTwo = props.location.pathname.replace(/\/billpay\/initial\//, '')
+        setDriverHours(ev.target.hoursWorked.value)
+        setDriverPay(ev.target.amountDue.value)
+        setDriverMiles(ev.target.milesDriven.value)
         axios.post('/billpay/edit', {
             id: myIdTwo,
             milesDriven: ev.target.milesDriven.value,
