@@ -12,17 +12,44 @@ const userSchema = new mongoose.Schema({
     manager: {
         type: Boolean
     },
-    amountDue: {
-        type: Number
-    },
+    calDate: {
+        type: Object
+    }, 
     milesDriven: {
         type: Number
     },
-    hoursWorked: {
-        type: Number
+    firstDeliveryTime: {
+        type: String
     },
-    payed: {
-        type: Number
+    startMileage: {
+        type: String
+    },
+    lastDeliveryTime: {
+        type: String
+    },
+    finishMileage: {
+        type: String
+    },
+    routeNumber: {
+        type: String
+    },
+    location: {
+        type: String
+    },
+    numberOfParcelsDelivered: {
+        type: String
+    },
+    returnBackTime: {
+        type: String
+    },
+    numberOfParcelsBroughtBack: {
+        type: String
+    },
+    ownerVehicleRegistration: {
+        type: String
+    },
+    amountDue: {
+        type: String
     }
 })
 

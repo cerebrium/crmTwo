@@ -6,6 +6,7 @@ import Billpay from './Billpay';
 import Invoice from './Invoice';
 import WelcomeManager from './welcomeManager'
 import WelcomeDriver from './welcomeDriver'
+import AllPayments from './allpayments'
 import {
   BrowserRouter as Router,
   Route,
@@ -38,7 +39,7 @@ function App() {
       })
   }
 
-  // set manager field as tru
+  // set manager field as true
   var handleClickYes = (ev) => {
     ev.preventDefault()
     console.log('form submitted')
@@ -69,15 +70,16 @@ function App() {
   var navbar;
   if (userName && manager) {
     if (manager === 'yes') {
-      console.log('inside the yes route')
+      // MANAGER NAVBAR
       navbar = (
         <>
           <Route exact path='/' component={WelcomeManager} />
+          <Route exact path='/allpayments' component={AllPayments} />
           <Route exact path='/billpay/initial/:handle' component={Billpay} />
         </>
       )
     } else {
-      console.log('inside the navbar')
+      // DRIVER NAVBAR
       navbar = (
         <>
           <Route exact path='/' component={WelcomeDriver} />

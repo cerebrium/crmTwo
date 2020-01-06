@@ -17,6 +17,20 @@
   background-size: cover;
 }
 
+.formPageInline{
+  display: flex;
+  align-items: center;
+}
+
+ /* ************************************ PLACE FOR ALL THE FORM BOX LENGTHS ************************************/
+ .calendarPlacment{
+   padding-right: 5%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  }
+  
+  /* ************************************ PLACE FOR ALL THE FORM BOX LENGTHS ************************************/
 .titlePage{
   opacity: .6;
   font-size: 1.2em;
@@ -33,4 +47,27 @@
 
 .welcomeManager {
   text-align: center;
+}
+
+.billPayForm {
+  display: flex;
+  flex-direction: column;
+  height: 33vh;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 40vw;
+}
+
+.bottomLink{
+  margin-top: 14%;
+  height: 5vh;
+}
+
+.submitPlacment{
+  position: absolute;
+  margin-top: 18%;
+}
+
+.submit{
+  font-size: 4em;
 }
