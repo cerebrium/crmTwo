@@ -17,9 +17,8 @@ const Invoice = (props) => {
     if (userDetails) {
         details = (
             <>
-                <h3>Hours Worked Last Week: {userDetails.hoursWorked}</h3>
-                <h3>Hours miles driven last week: {userDetails.milesDriven}</h3>
-                <h3>Amount to be payed: {userDetails.amountDue}</h3>
+                <h3>Hours miles driven last week: {userDetails.milesDriven[userDetails.milesDriven.length-1]}</h3>
+                <h3>Amount to be payed: {userDetails.amountDue[userDetails.milesDriven.length-1]}</h3>
             </>
         )
     } else {

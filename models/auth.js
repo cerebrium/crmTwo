@@ -13,43 +13,43 @@ const userSchema = new mongoose.Schema({
         type: Boolean
     },
     calDate: {
-        type: Object
+        type: Array
     }, 
     milesDriven: {
-        type: Number
+        type: Array
     },
     firstDeliveryTime: {
-        type: String
+        type: Array
     },
     startMileage: {
-        type: String
+        type: Array
     },
     lastDeliveryTime: {
-        type: String
+        type: Array
     },
     finishMileage: {
-        type: String
+        type: Array
     },
     routeNumber: {
-        type: String
+        type: Array
     },
     location: {
-        type: String
+        type: Array
     },
     numberOfParcelsDelivered: {
-        type: String
+        type: Array
     },
     returnBackTime: {
-        type: String
+        type: Array
     },
     numberOfParcelsBroughtBack: {
-        type: String
+        type: Array
     },
     ownerVehicleRegistration: {
-        type: String
+        type: Array
     },
     amountDue: {
-        type: String
+        type: Array
     }
 })
 
