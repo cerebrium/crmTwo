@@ -5,34 +5,45 @@ import './App.css'
 
 const WelcomeManager = () => {
     const [ drivers, setDrivers] = useState([])
-    const []
+    const [driverArray, setDriverArray] = useState([])
 
     useEffect(() => {
         axios.get('/auth/alldrivers').then( response => {
-            console.log(response.data)
             setDrivers(response.data)
         })
     }, [])
 
     var myDrivers; 
-    if (drivers) {
-        myDrivers = drivers.map((ele, id) => <h3 key={id} ><Link to={`/billpay/initial/${ele._id}`} id={ele._id}>{ele.name}</Link></h3>)
+    if (driverArray.length >= 1) {
+        console.log('inside driverArray.length function', driverArray)
+        myDrivers = driverArray.map((ele, id) => <h3 key={id} ><Link to={`/billpay/initial/${ele._id}`} id={ele._id}>{ele.name}</Link></h3>)
     } else {
         myDrivers = ''
     }
 
+    let onChange = (ev) => {
+        let myNameArray = drivers.map((ele, index) => {
+            return {
+                name: ele.name,
+                _id: ele._id
+            } 
+        })
+        searcher(ev.target.value, myNameArray)
+    }
+
     let searcher = (x, arr) => {
+        console.log(driverArray)
         let myReturnArray = []
-        for (let i = 0; i < arr.length; i++) {
-          let mySub = arr[i].substring(0, x.length)
-          if (mySub === x) {
-            myReturnArray.push(arr[i])
-          }
+        if (x) {
+            for (let i = 0; i < arr.length; i++) {
+              let mySub = arr[i].name.substring(0, x.length)
+              if (mySub === x) {
+                myReturnArray.push(arr[i])
+              }
+            }
         }
-        return myReturnArray
-      }
-      
-      searcher('c', myArray)
+        setDriverArray(myReturnArray)
+    }
 
     return (
         <div className='mainAppTwo'>
@@ -44,7 +55,10 @@ const WelcomeManager = () => {
                 </div>
                 <hr />
                 <div className='driversClass'>
-                    <h3>Select a Driver</h3>
+                    <form>
+                        <label>Select a driver</label>
+                        <input type="text" name='inputText' onChange={onChange}/>
+                    </form>
                     {myDrivers}
                 </div>
             </div>
