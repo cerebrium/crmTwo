@@ -18,6 +18,23 @@ router.post('/signup', (req, res) => {
     })
 })
 
+// add user data in the database for team creation and checking
+router.post('/add', (req, res) => {
+    // find user based on email
+    console.log('in the signup route')
+    User.findOne({ email: req.body.email }, (err, user) => {
+        // if user found wont write anything, else going to write to db
+       if (user) {
+           res.json(user)
+       } else {
+            let user = new User(req.body)
+            user.manager = false
+            user.save();
+            res.json(user)
+       }
+    })
+})
+
 router.post('/manager', (req, res) => {
     console.log('in the manager route', req.body)
     User.findOne({ email: req.body.email }, (err, user) => {

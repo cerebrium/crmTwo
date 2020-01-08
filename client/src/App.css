@@ -67,6 +67,11 @@
     color: brown;
     font-size: 1.05em;
   }
+
+  .onClickRows:hover{
+    color: brown;
+    font-size: 1.5em;
+  }
   
   .submitPlacment{
     position: absolute;
@@ -83,6 +88,11 @@
     justify-content: space-around;
     height: 5vh;
     background-color: aliceblue;
+  }
+
+  .managerOptions{
+    display: flex;
+    justify-content: space-around;
   }
   
   /* ************************************ Manager Invoice Page ************************************/

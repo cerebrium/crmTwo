@@ -13,20 +13,6 @@ const ManagerInvoice = (props) => {
         })
     }, [])
 
-    // calDate: (4) [{…}, {…}, {…}, {…}]
-    // milesDriven: (4) ["23", "45", "123", "500"]
-    // firstDeliveryTime: (4) ["32", "45", "123", "500"]
-    // startMileage: (4) ["23", "45", "123", "500"]
-    // lastDeliveryTime: (4) ["23", "45", "123", "500"]
-    // finishMileage: (4) ["23", "45", "123", "500"]
-    // routeNumber: (4) ["23", "45", "123", "500"]
-    // location: (4) ["23", "45", "123", "500"]
-    // numberOfParcelsDelivered: (4) ["23", "45", "123", "500"]
-    // returnBackTime: (4) ["23", "45", "123", "500"]
-    // numberOfParcelsBroughtBack: (4) ["23", "45", "123", "500"]
-    // ownerVehicleRegistration: (4) ["23", "45", "123", "500"]
-    // amountDue:
-
     var myTable;
     if (userDetails !== null) {
         myTable = (

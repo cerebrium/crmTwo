@@ -14,6 +14,7 @@ const Billpay = (props) => {
     const [viewDate, setViewDate] = useState('')
 
     useEffect(() => {
+        console.log('on the billpay page')
         var myId = props.location.pathname.replace(/\/billpay\//, '')
         axios.get(`/billpay/${myId}`).then(res => {
             setDriver(res.data)
