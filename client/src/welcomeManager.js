@@ -31,6 +31,10 @@ const WelcomeManager = () => {
         searcher(ev.target.value, myNameArray)
     }
 
+    let onSubmit = (ev) => {
+        ev.preventDefault()
+    }
+
     let searcher = (x, arr) => {
         console.log(driverArray)
         let myReturnArray = []
@@ -55,7 +59,7 @@ const WelcomeManager = () => {
                 </div>
                 <hr />
                 <div className='driversClass'>
-                    <form>
+                    <form onSubmit={onSubmit}>
                         <label>Select a driver</label>
                         <input type="text" name='inputText' onChange={onChange}/>
                     </form>
