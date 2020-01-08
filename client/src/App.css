@@ -31,43 +31,45 @@
   }
   
   /* ************************************ PLACE FOR ALL THE FORM BOX LENGTHS ************************************/
-.titlePage{
-  opacity: .6;
-  font-size: 1.2em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 10%;
-  padding-top: 2%;
-}
+  .titlePage{
+    opacity: .6;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10%;
+    padding-top: 2%;
+  }
+  
+  .googleLogin{
+    text-align: center;
+  }
+  
+  .welcomeManager {
+    text-align: center;
+  }
+  
+  .billPayForm {
+    display: flex;
+    flex-direction: column;
+    height: 33vh;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 40vw;
+  }
+  
+  .bottomLink{
+    margin-top: 14%;
+    height: 5vh;
+  }
+  
+  .submitPlacment{
+    position: absolute;
+    margin-top: 18%;
+  }
+  
+  .submit{
+    font-size: 4em;
+  }
+  /* ************************************ WELCOME MANAGER PAGE ************************************/
 
-.googleLogin{
-  text-align: center;
-}
-
-.welcomeManager {
-  text-align: center;
-}
-
-.billPayForm {
-  display: flex;
-  flex-direction: column;
-  height: 33vh;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 40vw;
-}
-
-.bottomLink{
-  margin-top: 14%;
-  height: 5vh;
-}
-
-.submitPlacment{
-  position: absolute;
-  margin-top: 18%;
-}
-
-.submit{
-  font-size: 4em;
-}
