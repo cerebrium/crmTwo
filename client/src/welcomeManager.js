@@ -16,7 +16,7 @@ const WelcomeManager = () => {
     var myDrivers; 
     if (driverArray.length >= 1) {
         console.log('inside driverArray.length function', driverArray)
-        myDrivers = driverArray.map((ele, id) => <h3 key={id} ><Link to={`/billpay/initial/${ele._id}`} id={ele._id}>{ele.name}</Link></h3>)
+        myDrivers = driverArray.map((ele, id) => <h3 key={id} ><Link to={`/billpay/initial/${ele._id}`} id={ele._id} className='bottomLinks'>{ele.name}</Link></h3>)
     } else {
         myDrivers = ''
     }
@@ -50,23 +50,32 @@ const WelcomeManager = () => {
     }
 
     return (
-        <div className='mainAppTwo'>
-            <h1 className='welcomeManager'>WelcomeManager</h1>
-            <div className='myDataManagerPage'>
-                <div className='allDataClass'>
-                    <h3>View all data</h3>
-                    <Link to='/allpayments'>All Payments</Link>
+        <>
+            <nav className='navBar'>
+                <div>
+                    <Link to='/' className='bottomLinks'>Back to Welcome</Link>
                 </div>
-                <hr />
-                <div className='driversClass'>
-                    <form onSubmit={onSubmit}>
-                        <label>Select a driver</label>
-                        <input type="text" name='inputText' onChange={onChange}/>
-                    </form>
-                    {myDrivers}
+                <div>
+                    <Link to='/allpayments' className='bottomLinks'>All Payments</Link>
+                </div>
+            </nav> 
+            <div className='mainAppTwo'>
+                <h1 className='welcomeManager'>WelcomeManager</h1>
+                <div className='myDataManagerPage'>
+                    <div className='allDataClass'>
+                        <h3>View all data</h3>
+                    </div>
+                    <hr />
+                    <div className='driversClass'>
+                        <form onSubmit={onSubmit}>
+                            <label>Select a driver</label>
+                            <input type="text" name='inputText' onChange={onChange}/>
+                        </form>
+                        {myDrivers}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

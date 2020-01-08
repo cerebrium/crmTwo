@@ -23,7 +23,6 @@ const Billpay = (props) => {
             let currDate = dateSelected.toDateString()
             setViewDate(currDate)
         })
-        console.log(dateSelected)
     }, [])
 
     var driverDetails;
@@ -32,9 +31,6 @@ const Billpay = (props) => {
             <>
                 <h3>Name: {driver.name}</h3>
                 <h3>Email: {driver.email}</h3>
-                {/* <h3>Current Miles: {driverMiles}</h3>
-                <h3>Current Hours: {driverHours}</h3>
-                <h3>Current Amount Due: {driverPay}</h3> */}
             </>
         )
     } else {
@@ -43,10 +39,7 @@ const Billpay = (props) => {
 
     var handleSubmit = (ev) => {
         ev.preventDefault()
-        console.log('in handle submit')
         var myIdTwo = props.location.pathname.replace(/\/billpay\/initial\//, '')
-        // setDriverHours(ev.target.hoursWorked.value)
-        // setDriverPay(ev.target.amountDue.value)
         setDriverMiles(ev.target.milesDriven.value)
         axios.post('/billpay/edit', {
             id: myIdTwo,
@@ -87,62 +80,72 @@ const Billpay = (props) => {
         setDateSelected({ ev })
     }
 
+    var myId = props.location.pathname.replace(/\/billpay\/initial\//, '')
+
     return (
-        <div className='mainAppTwo'>
-            <h1>Billpay Page</h1>
-            {driverDetails}
-            <div className='formPageInline'>
-                <div className='calendarPlacment'>
-                    <label>Delivery Date: {viewDate}</label><br />  
-                    <Calendar onChange={onChange} className='calendar'/><br />
+        <>
+            <nav className='navBar'>
+                <div>
+                    <Link to='/' className='bottomLinks'>Back to Welcome</Link>
                 </div>
                 <div>
-                    <form onSubmit={handleSubmit} className='billPayForm'>
-                        <label>Miles Driven</label>
-                        <input type="number" name='milesDriven' className='milesDriven'/> 
-
-                        <label>First Delivery Time</label>
-                        <input type="text" name='firstDeliveryTime' className='firstDeliveryTime'/>
-
-                        <label>Start Mileage</label>
-                        <input type="text" name='startMileage' className='startMileage'/>
-
-                        <label>Last Delivery Time</label>
-                        <input type="text" name='lastDeliveryTime' className='lastDeliveryTime'/>
-
-                        <label>Finish Mileage</label>
-                        <input type="text" name='finishMileage' className='finishMileage'/>
-
-                        <label>Route Number</label>
-                        <input type="text" name='routeNumber' className='routeNumber'/>
-
-                        <label>Location</label>
-                        <input type="text" name='location' className='location'/>
-
-                        <label>Number of Parcels Delivered</label>
-                        <input type="text" name='numberOfParcelsDelivered' className='numberOfParcelsDelivered'/>
-
-                        <label>Return Back Time</label>
-                        <input type="text" name='returnBackTime' className='returnBackTime'/>
-
-                        <label>Number of Parcels Brought Back</label>
-                        <input type="text" name='NumberOfParcelsBroughtBack' className='NumberOfParcelsBroughtBack'/>
-
-                        <label>Owner Vehicle Registration</label>
-                        <input type="text" name='ownerVehicleRegistration' className='ownerVehicleRegistration'/>
-
-                        <label>Amount Due</label>
-                        <input type="number" name='amountDue' className='amountDue'/>
-
-                        <div className='submitPlacment'>
-                            <input type="submit" value="Submit" className='submit' />
-                        </div>
-
-                    </form>
+                    <Link to={`/managerInvoice/${myId}`} className='bottomLinks'>Make Current Invoice</Link>
                 </div>
-            </div>    
-            <Link to='/' ><button className='bottomLink'>Back to Welcome</button></Link>
-        </div>
+            </nav> 
+            <div className='mainAppTwo'>
+                <h1>Billpay Page</h1>
+                {driverDetails}
+                <div className='formPageInline'>
+                    <div className='calendarPlacment'>
+                        <label>Delivery Date: {viewDate}</label><br />  
+                        <Calendar onChange={onChange} className='calendar'/><br />
+                    </div>
+                    <div>
+                        <form onSubmit={handleSubmit} className='billPayForm'>
+                            <label>Miles Driven</label>
+                            <input type="number" name='milesDriven' className='milesDriven'/> 
+
+                            <label>First Delivery Time</label>
+                            <input type="text" name='firstDeliveryTime' className='firstDeliveryTime'/>
+
+                            <label>Start Mileage</label>
+                            <input type="text" name='startMileage' className='startMileage'/>
+
+                            <label>Last Delivery Time</label>
+                            <input type="text" name='lastDeliveryTime' className='lastDeliveryTime'/>
+
+                            <label>Finish Mileage</label>
+                            <input type="text" name='finishMileage' className='finishMileage'/>
+
+                            <label>Route Number</label>
+                            <input type="text" name='routeNumber' className='routeNumber'/>
+
+                            <label>Location</label>
+                            <input type="text" name='location' className='location'/>
+
+                            <label>Number of Parcels Delivered</label>
+                            <input type="text" name='numberOfParcelsDelivered' className='numberOfParcelsDelivered'/>
+
+                            <label>Return Back Time</label>
+                            <input type="text" name='returnBackTime' className='returnBackTime'/>
+
+                            <label>Number of Parcels Brought Back</label>
+                            <input type="text" name='NumberOfParcelsBroughtBack' className='NumberOfParcelsBroughtBack'/>
+
+                            <label>Owner Vehicle Registration</label>
+                            <input type="text" name='ownerVehicleRegistration' className='ownerVehicleRegistration'/>
+
+                            <label>Amount Due</label>
+                            <input type="number" name='amountDue' className='amountDue'/>
+
+                            <div className='submitPlacment'>
+                            <input type="submit" value="Submit" className='submit' />
+                            </div>
+                        </form>
+                    </div>
+                </div>   
+            </div>
+        </>
     )
 }
 

@@ -12,9 +12,9 @@
   padding-left: 5%;
   font-size: 1.2em;
   flex-direction: column;
-  background-image: url('backgroundDark.jpg');
+  /* background-image: url('backgroundDark.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .formPageInline{
@@ -58,9 +58,14 @@
     width: 40vw;
   }
   
-  .bottomLink{
-    margin-top: 14%;
-    height: 5vh;
+  .bottomLinks{
+    text-decoration: none;
+    color: black;
+  }
+
+  .bottomLinks:hover {
+    color: brown;
+    font-size: 1.05em;
   }
   
   .submitPlacment{
@@ -72,4 +77,28 @@
     font-size: 4em;
   }
   /* ************************************ WELCOME MANAGER PAGE ************************************/
+  .navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 5vh;
+    background-color: aliceblue;
+  }
+  
+  /* ************************************ Manager Invoice Page ************************************/
+  .tableStyle{
+    justify-content: left;
+  }
 
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+  
+  th {
+    text-align: left;
+  }

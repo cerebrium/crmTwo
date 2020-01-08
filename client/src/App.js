@@ -11,6 +11,7 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+import ManagerInvoice from './managerInvoice';
 
 function App() {
   // Setting state with the user details retrieved using googles Oauth
@@ -75,6 +76,7 @@ function App() {
         <>
           <Route exact path='/' component={WelcomeManager} />
           <Route exact path='/allpayments' component={AllPayments} />
+          <Route exact path='/managerInvoice/:handle' component={ManagerInvoice} />
           <Route exact path='/billpay/initial/:handle' component={Billpay} />
         </>
       )

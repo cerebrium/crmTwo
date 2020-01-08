@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/auth')
 
+    // grabbing the user deatils
     router.get('/initial/:id', (req, res) => {
         console.log('in the billpay route')
         User.findById(req.params.id, (err, user) => {
@@ -9,6 +10,7 @@ const User = require('../models/auth')
         })
     })
 
+    // Saving the data route
     router.post('/edit', (req, res) => {
         console.log(req.body)
         User.findById(req.body.id, (err, user) => {
@@ -82,4 +84,5 @@ const User = require('../models/auth')
             res.json('succesful update')
         })
     })
+
 module.exports = router;

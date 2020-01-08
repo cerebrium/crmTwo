@@ -62,11 +62,16 @@ const Allpayments = () => {
     }
 
     return (
-        <div className='mainAppTwo'>
-            <h1>All Payments</h1>
-            <Link to='/'>Back to </Link>
-        </div>
-
+        <>
+            <nav className='navBar'>
+                <div>
+                    <Link to='/' className='bottomLinks'>Back to Welcome</Link>
+                </div>
+            </nav> 
+            <div className='mainAppTwo'>
+                <h1>All Payments</h1>
+            </div>
+        </>
     )
 }
 

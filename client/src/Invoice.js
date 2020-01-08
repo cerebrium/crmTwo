@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Invoice = (props) => {
     const [userDetails, setUserDetails] = useState(null)
@@ -29,6 +30,7 @@ const Invoice = (props) => {
         <div className='mainAppTwo'>
             <h1>Invoicing Page</h1>
             {details}
+            <Link to='/' ><button className='bottomLink'>Back to Welcome</button></Link>
         </div>
     )
 }
