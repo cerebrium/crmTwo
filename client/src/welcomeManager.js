@@ -113,7 +113,7 @@ const WelcomeManager = () => {
                 <div className='myDataManagerPage'>
                     <div className='allDataClass'>
                         <div className='managerOptions'>
-                            <h3 onClick={onClick} className='onClickRows'>View all data</h3>
+                            <h3 onClick={onClick} className='onClickRows'>View all Drivers</h3>
                             <h3 onClick={onClick} className='onClickRows'>Add Driver</h3>
                         </div>
                     </div>
