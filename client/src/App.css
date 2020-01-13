@@ -1,6 +1,5 @@
 .mainApp {
   height: 100vh;
-
   background-image: url('mainPage.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -9,12 +8,17 @@
   color: black;
   height: 100vh;
   display: flex;
-  padding-left: 5%;
+  margin-left: 13vw;
   font-size: 1.2em;
   flex-direction: column;
-  /* background-image: url('backgroundDark.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; */
+}
+
+.mainAppThree {
+  color: black;
+  height: 100vh;
+  margin-left: 13vw;
+  font-size: 1.2em;
+  flex-direction: column;
 }
 
 .formPageInline{
@@ -83,11 +87,14 @@
   }
   /* ************************************ WELCOME MANAGER PAGE ************************************/
   .navBar {
+    position: absolute;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-around;
-    height: 5vh;
-    background-color: aliceblue;
+    width: 11vw;
+    height: 100vh;
+    border: 1px solid black;
   }
 
   .managerOptions{

@@ -46,7 +46,7 @@ const ManagerInvoice = (props) => {
                         </tr>
                         <tr>
                             <th colSpan='2'>Location</th>
-                            <td>{userDetails.location[userDetails.location.length-1]}</td>
+                            <td>{userDetails.location}</td>
                         </tr>
                         <tr>
                             <th colSpan='2'>Number of Parcels Delivered</th>
@@ -77,8 +77,17 @@ const ManagerInvoice = (props) => {
     return (
         <>
             <nav className='navBar'>
-                <div className='bottomLinks'>
-                    <Link to='/' >Back to Welcome</Link>
+                <div>
+                    <Link to='/' className='bottomLinks'>Back to Welcome</Link>
+                </div>
+                <div>
+                    <Link to='/exeter' className='bottomLinks'>Exeter Dashboard</Link>
+                </div>
+                <div>
+                    <Link to='/bristol' className='bottomLinks'>Bristol Dashboard</Link>
+                </div>
+                <div>
+                    <Link to='/swindon' className='bottomLinks'>Swindon Dashboard</Link>
                 </div>
             </nav>
             <div className='mainAppThree'>

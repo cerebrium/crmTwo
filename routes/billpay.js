@@ -4,7 +4,6 @@ const User = require('../models/auth')
 
     // grabbing the user deatils
     router.get('/initial/:id', (req, res) => {
-        console.log('in the billpay route')
         User.findById(req.params.id, (err, user) => {
             res.json(user)
         })
@@ -12,7 +11,6 @@ const User = require('../models/auth')
 
     // Saving the data route
     router.post('/edit', (req, res) => {
-        console.log(req.body)
         User.findById(req.body.id, (err, user) => {
             // Miles Driven  
             let milesDrivenCopy = [...user.milesDriven]
@@ -50,9 +48,7 @@ const User = require('../models/auth')
             user.routeNumber = routeNumberCopy
 
             // Location that the deliveries took place
-            let locationCopy = [...user.location]
-            locationCopy.push(req.body.location)
-            user.location = locationCopy
+            user.location = req.body.location
 
             // Number of parcels delivered
             let numberOfParcelsDeliveredCopy = [...user.numberOfParcelsDelivered]

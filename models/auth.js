@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
         type: Array
     },
     location: {
-        type: Array
+        type: String
     },
     numberOfParcelsDelivered: {
         type: Array

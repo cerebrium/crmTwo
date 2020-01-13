@@ -14,7 +14,6 @@ const Billpay = (props) => {
     const [viewDate, setViewDate] = useState('')
 
     useEffect(() => {
-        console.log('on the billpay page')
         var myId = props.location.pathname.replace(/\/billpay\//, '')
         axios.get(`/billpay/${myId}`).then(res => {
             setDriver(res.data)
@@ -51,7 +50,7 @@ const Billpay = (props) => {
             lastDeliveryTime: ev.target.lastDeliveryTime.value,
             finishMileage: ev.target.finishMileage.value,
             routeNumber: ev.target.routeNumber.value,
-            location: ev.target.location.value,
+            location: ev.target.location.value.toLowerCase(),
             numberOfParcelsDelivered: ev.target.numberOfParcelsDelivered.value,
             returnBackTime: ev.target.returnBackTime.value,
             numberOfParcelsBroughtBack: ev.target.NumberOfParcelsBroughtBack.value,
@@ -80,13 +79,13 @@ const Billpay = (props) => {
         setViewDate(currDate)
         setDateSelected({ ev })
     }
-
+    
     var myId = props.location.pathname.replace(/\/billpay\/initial\//, '')
 
     return (
         <>
             <nav className='navBar'>
-                <div>
+               <div>
                     <Link to='/' className='bottomLinks'>Back to Welcome</Link>
                 </div>
                 <div>

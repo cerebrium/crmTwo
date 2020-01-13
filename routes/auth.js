@@ -35,6 +35,7 @@ router.post('/add', (req, res) => {
     })
 })
 
+// 
 router.post('/manager', (req, res) => {
     console.log('in the manager route', req.body)
     User.findOne({ email: req.body.email }, (err, user) => {
@@ -46,6 +47,16 @@ router.post('/manager', (req, res) => {
     })
 })
 
+// grabbing users associated with places
+router.post('/location', (req, res) => {
+    User.find({location: req.body.location}, (err, users) => {
+        if (users.length) {
+            res.json(users)
+        }
+    })
+})
+
+// get all the drivers in system
 router.get('/alldrivers', (req, res) => {
     console.log('in the all users section', req.body)
     User.find({ manager: false }, (err, users) => {
