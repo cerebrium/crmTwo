@@ -128,17 +128,18 @@ const Swindon = () => {
                 </div>
             </nav> 
             <div className='mainAppTwo'>
-                <h1 className='welcomeManager'>Swindon Dashboard</h1>
                 <div className='myDataManagerPage'>
                     <div className='allDataClass'>
-                        <div className='managerOptions'>
                         <div className='calendarPlacment'>
+                        <h1>Swindon Dashboard</h1>
                             <label>Delivery Date: {viewDate}</label><br />  
                             <Calendar onChange={onChangeTwo} className='calendar'/><br />
                         </div>
-                            <h3 onClick={onClick} className='onClickRows'>View all Drivers</h3>
-                            <h3 onClick={onClick} className='onClickRows'>Add Driver</h3>
-                        </div>
+                    </div>
+                    <hr />
+                    <div className='managerOptions'>
+                        <button onClick={onClick}><h3>View all Drivers</h3></button>
+                        <button onClick={onClick}><h3>Add Driver</h3></button>
                     </div>
                     <hr />
                     {content}

@@ -4,6 +4,15 @@ import axios from 'axios'
 import './App.css'
 
 const WelcomeManager = (props) => {
+    const [ currDate, setCurrDate] = useState(new Date())
+
+    var myCurrDate;
+    if (currDate) {
+        myCurrDate = currDate.toDateString()
+    } else {
+        myCurrDate = ''
+    }
+
    return (
        <>  
             <nav className='navBar'>
@@ -24,7 +33,8 @@ const WelcomeManager = (props) => {
                 </div>
             </nav> 
             <div className='mainAppTwo'>
-                <h1>Welcome {props.user.name}</h1>
+                <h1 className='centerThis'>Welcome {props.user.name}</h1>
+                <h3 className='centerThis'>{myCurrDate}</h3>
             </div>
        </>
    )

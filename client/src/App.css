@@ -9,6 +9,7 @@
   height: 100vh;
   display: flex;
   margin-left: 13vw;
+  margin-right: 2vw;
   font-size: 1.2em;
   flex-direction: column;
 }
@@ -84,6 +85,10 @@
   
   .submit{
     font-size: 4em;
+  }
+
+  .centerThis {
+    text-align: center;
   }
   /* ************************************ WELCOME MANAGER PAGE ************************************/
   .navBar {
