@@ -14,6 +14,9 @@ const WelcomeManager = (props) => {
                     <Link to='/exeter' className='bottomLinks'>Exeter Dashboard</Link>
                 </div>
                 <div>
+                    <Link to='/newdrivers' className='bottomLinks'>New Drivers</Link>
+                </div>
+                <div>
                     <Link to='/bristol' className='bottomLinks'>Bristol Dashboard</Link>
                 </div>
                 <div>

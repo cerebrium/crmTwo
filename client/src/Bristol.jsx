@@ -1,17 +1,21 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Calendar from 'react-calendar'
 
 const Bristol = (props) => {
     const [ drivers, setDrivers ] = useState([])
     const [ driverArray, setDriverArray ] = useState([])
     const [ logicGate, setLogicGate ] = useState(true)
     const [ getMoreData, setGetMoreData ] = useState(false)
+    const [dateSelected, setDateSelected] = useState(new Date())
+    const [viewDate, setViewDate] = useState('')
 
     useEffect(() => {
         axios.post('/auth/location', {location: 'bristol'}).then( response => {
             setDrivers(response.data)
-            console.log(response.data)
+            let currDate = dateSelected.toDateString()
+            setViewDate(currDate)
         })
         setGetMoreData(false)
     }, [getMoreData])
@@ -37,6 +41,13 @@ const Bristol = (props) => {
     // function for stopping the search function from firing to a new page
     let onSubmit = (ev) => {
         ev.preventDefault()
+    }
+
+    // Set the date on change function
+    var onChangeTwo = (ev) => {
+        let currDate = ev.toDateString()
+        setViewDate(currDate)
+        setDateSelected({ ev })
     }
 
     // function for adding drivers
@@ -120,6 +131,10 @@ const Bristol = (props) => {
                 <div className='myDataManagerPage'>
                     <div className='allDataClass'>
                         <div className='managerOptions'>
+                        <div className='calendarPlacment'>
+                            <label>Delivery Date: {viewDate}</label><br />  
+                            <Calendar onChange={onChangeTwo} className='calendar'/><br />
+                        </div>
                             <h3 onClick={onClick} className='onClickRows'>View all Drivers</h3>
                             <h3 onClick={onClick} className='onClickRows'>Add Driver</h3>
                         </div>
