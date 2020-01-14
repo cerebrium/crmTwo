@@ -20,6 +20,13 @@ const Bristol = (props) => {
         setGetMoreData(false)
     }, [getMoreData])
 
+    // Grabbing all the drivers for that day
+    if (drivers.length > 0) {
+        console.log(drivers[0].calDate)
+        console.log(drivers)
+    }
+
+    // Mapping all the drivers
     var myDrivers; 
     if (driverArray.length >= 1) {
         myDrivers = driverArray.map((ele, id) => <h3 key={id} ><Link to={`/billpay/initial/${ele._id}`} id={ele._id} className='bottomLinks'>{ele.name}</Link></h3>)
@@ -141,11 +148,14 @@ const Bristol = (props) => {
             </nav> 
             <div className='mainAppTwo'>
                 <div className='myDataManagerPage'>
+                    <h1 className='centerThis'>  Bristol Dashboard</h1>
                     <div className='allDataClass'>
                         <div className='calendarPlacment'>
-                        <h1>Bristol Dashboard</h1>
                             <label>Delivery Date: {viewDate}</label><br />  
                             <Calendar onChange={onChangeTwo} className='calendar'/><br />
+                        </div>
+                        <div>
+                            <h3>hello</h3>
                         </div>
                     </div>
                     <hr />
