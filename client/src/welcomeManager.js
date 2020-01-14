@@ -5,12 +5,24 @@ import './App.css'
 
 const WelcomeManager = (props) => {
     const [ currDate, setCurrDate] = useState(new Date())
-
+    console.log(props.user)
     var myCurrDate;
     if (currDate) {
         myCurrDate = currDate.toDateString()
     } else {
         myCurrDate = ''
+    }
+
+    var secretRoute;
+    if (props.user.email === 'nicholas.m.shankland@gmail.com' || props.user.email === 'gigiilieva17g@gmail.com') {
+        console.log('in the secret route if')
+        secretRoute = (
+            <div>
+                <Link to='/super' className='bottomLinks'>Managers Dashboard</Link>
+            </div>
+        )
+    } else {
+        secretRoute = ''
     }
 
    return (
@@ -31,6 +43,7 @@ const WelcomeManager = (props) => {
                 <div>
                     <Link to='/swindon' className='bottomLinks'>Swindon Dashboard</Link>
                 </div>
+                {secretRoute}
             </nav> 
             <div className='mainAppTwo'>
                 <h1 className='centerThis'>Welcome {props.user.name}</h1>

@@ -107,6 +107,18 @@ const Bristol = (props) => {
         )
     }
 
+    var secretRoute;
+    if (props.user.email === 'nicholas.m.shankland@gmail.com' || props.user.email === 'gigiilieva17g@gmail.com') {
+        console.log('in the secret route if')
+        secretRoute = (
+            <div>
+                <Link to='/super' className='bottomLinks'>Managers Dashboard</Link>
+            </div>
+        )
+    } else {
+        secretRoute = ''
+    }
+
     return (
         <>
             <nav className='navBar'>
@@ -125,6 +137,7 @@ const Bristol = (props) => {
                 <div>
                     <Link to='/swindon' className='bottomLinks'>Swindon Dashboard</Link>
                 </div>
+                {secretRoute}
             </nav> 
             <div className='mainAppTwo'>
                 <div className='myDataManagerPage'>

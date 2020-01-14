@@ -25,8 +25,14 @@ const Billpay = (props) => {
         })
     }, [])
 
+    var autolocation;
     var driverDetails;
     if (driver) {
+        if (driver.location) {
+            autolocation = driver.location
+        } else {
+            autolocation = ''
+        }
         driverDetails = (
             <>
                 <h3>Name: {driver.name}</h3>
@@ -121,7 +127,7 @@ const Billpay = (props) => {
                             <input type="text" name='routeNumber' className='routeNumber'/>
 
                             <label>Location</label>
-                            <input type="text" name='location' className='location'/>
+                            <input type="text" name='location' className='location' value=''/>
 
                             <label>Number of Parcels Delivered</label>
                             <input type="text" name='numberOfParcelsDelivered' className='numberOfParcelsDelivered'/>

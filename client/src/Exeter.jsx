@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Calendar from 'react-calendar'
 
-const Exeter = () => {
+const Exeter = (props) => {
     const [ drivers, setDrivers ] = useState([])
     const [ driverArray, setDriverArray ] = useState([])
     const [ logicGate, setLogicGate ] = useState(true)
@@ -108,6 +108,18 @@ const Exeter = () => {
         )
     }
 
+    var secretRoute;
+    if (props.user.email === 'nicholas.m.shankland@gmail.com' || props.user.email === 'gigiilieva17g@gmail.com') {
+        console.log('in the secret route if')
+        secretRoute = (
+            <div>
+                <Link to='/super' className='bottomLinks'>Managers Dashboard</Link>
+            </div>
+        )
+    } else {
+        secretRoute = ''
+    }
+
     return (
         <>
             <nav className='navBar'>
@@ -126,6 +138,7 @@ const Exeter = () => {
                 <div>
                     <Link to='/swindon' className='bottomLinks'>Swindon Dashboard</Link>
                 </div>
+                {secretRoute}
             </nav> 
             <div className='mainAppTwo'>
                 <div className='myDataManagerPage'>

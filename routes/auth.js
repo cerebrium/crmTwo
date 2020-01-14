@@ -35,12 +35,18 @@ router.post('/add', (req, res) => {
     })
 })
 
-// 
+// get all the managers
+router.get('/super', (req, res) => {
+    console.log('in the super route')
+    User.find({ manager: true }, (err, managers) => {
+        res.json(managers)
+    })
+})
+
+// make the user a manager
 router.post('/manager', (req, res) => {
-    console.log('in the manager route', req.body)
     User.findOne({ email: req.body.email }, (err, user) => {
         // add the manager boolean
-        console.log('found a user', user)
         user.manager = req.body.isManager
         user.save()
         res.json(user)
@@ -58,9 +64,7 @@ router.post('/location', (req, res) => {
 
 // get all the drivers in system
 router.get('/alldrivers', (req, res) => {
-    console.log('in the all users section', req.body)
     User.find({ manager: false }, (err, users) => {
-        console.log(users)
         res.json(users)
     })
 })

@@ -16,6 +16,7 @@ import Bristol from './Bristol';
 import Swindon from './Swindon';
 import Exeter from './Exeter';
 import NewDrivers from './NewDrivers';
+import SuperManager from './SuperManager';
 
 function App() {
   // Setting state with the user details retrieved using googles Oauth
@@ -73,9 +74,24 @@ function App() {
 
   // conditional rendering of nav bar
   var navbar;
-  if (userName && manager) {
-    if (manager === 'yes') {
+  if (userName && manager && user) {
+    if (user.email === 'nicholas.m.shankland@gmail.com' || user.email === 'gigiilieva17g@gmail.com') {
       // MANAGER NAVBAR
+      navbar = (
+        <>
+          <Route exact path='/' render={ () => <WelcomeManager user={user} /> } />
+          <Route exact path='/allpayments' render={ () => <AllPayments user={user} /> } /> 
+          <Route exact path = '/super' component={SuperManager} />
+          <Route exact path='/managerInvoice/:handle' component={ManagerInvoice} /> 
+          <Route exact path='/billpay/initial/:handle' component={Billpay} /> 
+          <Route exact path='/bristol' render={ () => <Bristol user={user} /> } /> 
+          <Route exact path='/swindon' render={ () => <Swindon user={user} /> } /> 
+          <Route exact path='/exeter' render={ () => <Exeter user={user} /> } /> 
+          <Route exact path='/newdrivers' render={ () => <NewDrivers user={user} /> } /> 
+        </>
+      )
+    } else if (manager === 'yes') {
+      // SUPER MANAGER NAVBAR
       navbar = (
         <>
           <Route exact path='/' render={ () => <WelcomeManager user={user} /> } />
